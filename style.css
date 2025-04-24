@@ -1,0 +1,21 @@
+h1{
+    color: orange ;
+    background-color: khaki ;
+}
+h2{
+    color: blue;
+    background-color: mediumturquoise ;
+}
+p{
+    color: navy;
+}
+p.info {
+    color: green;
+
+}
+a.i:link{
+    color: brown;
+}
+a.i:visited{
+    color: brown;
+}
