@@ -1,10 +1,16 @@
 h1{
-    color: orange ;
+    color: black ;
     background-color: khaki ;
+    text-shadow: 1px 1px 2px navy;
 }
 h2{
-    color: blue;
+    color: black;
     background-color: mediumturquoise ;
+}
+h3{
+    color: black;
+    background-color: pink ;
+
 }
 p{
     color: navy;
@@ -13,9 +19,9 @@ p.info {
     color: green;
 
 }
-a.i:link{
+a:link{
     color: brown;
 }
-a.i:visited{
+a:visited{
     color: brown;
 }
