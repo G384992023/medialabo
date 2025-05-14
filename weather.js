@@ -10,6 +10,7 @@ function print(data) {
   console.log(data.wind.speed);
   console.log(data.wind.deg);
   console.log(data.name);
+  
 }
 
 // 課題5-1 の関数 printDom() はここに記述すること
