@@ -15,11 +15,54 @@ function print(data) {
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+let d = document.createElement('div');
+d.setAttribute('id','result');
+let a = document.querySelector('body');
+a.insertAdjacentElement('beforeend',d);
 
+let de = document.createElement('ul');
+d.insertAdjacentElement('beforeend',de);
+let p1 =document.createElement('li');
+
+p1.textContent=data.coord.lon;
+de.insertAdjacentElement('beforeend',p1);
+
+let p2 =document.createElement('li');
+p2.textContent=data.coord.lat;
+de.insertAdjacentElement('beforeend',p2);
+
+let p3 =document.createElement('li');
+p3.textContent=data.weather[0].description;
+de.insertAdjacentElement('beforeend',p3);
+
+let p4 =document.createElement('li');
+p4.textContent=data.main.temp_min;
+de.insertAdjacentElement('beforeend',p4);
+
+let p5 =document.createElement('li');
+p5.textContent=data.main.temp_max;
+de.insertAdjacentElement('beforeend',p5);
+
+let p9 =document.createElement('li');
+p9.textContent=data.main.humidity;
+de.insertAdjacentElement('beforeend',p9);
+
+let p6 =document.createElement('li');
+p6.textContent=data.wind.speed;
+de.insertAdjacentElement('beforeend',p6);
+
+let p7 =document.createElement('li');
+p7.textContent=data.wind.deg;
+de.insertAdjacentElement('beforeend',p7);
+
+let p8 =document.createElement('li');
+p8.textContent=data.name;
+de.insertAdjacentElement('beforeend',p8);
 }
 
 // 課題5-1 のイベントハンドラの定義
 function show() {
+
 
 }
 
