@@ -10,11 +10,14 @@ function print(data) {
   console.log(data.wind.speed);
   console.log(data.wind.deg);
   console.log(data.name);
-  
 }
 
-// 課題5-1 の関数 printDom() はここに記述すること
+// 課題5-1 の関数 printDom() はここに記述すること]:_/
 function printDom(data) {
+let c = document.querySelector('div#result');
+if(c!==null){
+  c.remove(); 
+}
 let d = document.createElement('div');
 d.setAttribute('id','result');
 let a = document.querySelector('body');
@@ -23,8 +26,8 @@ a.insertAdjacentElement('beforeend',d);
 let de = document.createElement('ul');
 d.insertAdjacentElement('beforeend',de);
 let p1 =document.createElement('li');
+p1.textContent=''+data.coord.lon;
 
-p1.textContent=data.coord.lon;
 de.insertAdjacentElement('beforeend',p1);
 
 let p2 =document.createElement('li');
@@ -63,7 +66,6 @@ de.insertAdjacentElement('beforeend',p8);
 // 課題5-1 のイベントハンドラの定義
 function show() {
 
-
 }
 
 // 課題5-1, 6-1 のイベントハンドラ登録処理は以下に記述
@@ -73,13 +75,90 @@ function show() {
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
-
+  let w= document.querySelector('input[name="Input"]');
+  let q = w.value;
+  let id;
+  switch(q) {
+    case "カイロ":
+    case "Cairo":
+      id = 360630;
+      break;
+    case "モスクワ":
+    case "Moscow":
+      id = 524901;
+      break;
+    case "ヨハネスブルグ":
+    case "Johannesburg":
+      id = 993800;
+      break;
+    case "北京":
+    case "Beijing":
+      id = 1816670;
+      break;
+    case "東京":
+    case "Tokyo":
+      id = 1850147;
+      break;
+    case "シンガポール":
+    case "Singapore":
+      id = 1880252;
+      break;
+    case "シドニー":
+    case "Sydney":
+      id = 2147714;
+      break;
+    case "ロンドン":
+    case "London":
+      id = 2643743;
+      break;
+    case "パリ":
+    case "Paris":
+      id = 2968815;
+      break;
+    case "リオデジャネイロ":
+    case "Rio de Janeiro":
+      id = 3451189;
+      break;
+    case "ニューヨーク":
+    case "New York":
+      id = 5128581;
+      break;
+    case "ロサンゼルス":
+    case "Los Angeles":
+      id = 5368361;
+      break;
+      default:
+          }
+      let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/'+id+'.json';
+          
+          // 通信開始
+          axios.get(url)
+          .then(showResult)   // 通信成功
+          .catch(showError)   // 通信失敗
+          .then(finish);      // 通信の最後の処理
+          
+        }
+        
+        // 課題6-1: 通信が成功した時の処理は以下に記述
+        function showResult(resp) {
+          let data = resp.data;
+          
+          // data が文字列型なら，オブジェクトに変換する
+          if (typeof data === 'string') {
+            data = JSON.parse(data);
+          }
+          
+          // data をコンソールに出力
+          console.log(data);
+          
+          // data.x を出力
+          printDom(data);
+          
 }
 
-// 課題6-1: 通信が成功した時の処理は以下に記述
-function showResult(resp) {
+let b = document.querySelector('button#s');
+b.addEventListener('click',sendRequest);
 
-}
 
 // 課題6-1: 通信エラーが発生した時の処理
 function showError(err) {
